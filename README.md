@@ -3,7 +3,7 @@
 A modern, real-time expense tracking application built with Next.js and Firebase.
 
 Live Demo (after deployment):  
-👉 https://your-vercel-url.vercel.app
+👉 https://xpense-trackr-nine.vercel.app
 
 ---
 
