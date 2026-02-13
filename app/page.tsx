@@ -116,9 +116,9 @@ export default function Home() {
   // 🔹 Dashboard
   // =============================
   return (
-    <div className="flex h-screen bg-gray-100">
+  <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row">
       {/* LEFT PANEL */}
-      <div className="w-2/5 bg-gradient-to-br from-indigo-600 to-emerald-500 text-white p-10 flex flex-col">
+      <div className="w-full md:w-2/5 bg-gradient-to-br from-indigo-600 to-emerald-500 text-white p-6 md:p-10 flex flex-col">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold">FinSight</h1>
           <button
@@ -133,9 +133,9 @@ export default function Home() {
       </div>
 
       {/* RIGHT PANEL */}
-      <div className="w-3/5 p-8 overflow-y-auto">
-        {/* Summary */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-6 flex justify-between">
+      <div className="w-full md:w-3/5 p-4 md:p-8 overflow-y-auto">
+justify        {/* Summary */}
+        <div className="bg-white rounded-2xl shadow-lg p-6 mb-6 flex flex-col md:flex-row md:justify-between gap-4">
           <div>
             <p className="text-gray-500 text-sm">Total Expenses</p>
             <p className="text-2xl font-bold">₹ {total}</p>
