@@ -86,26 +86,17 @@ export default function AuthForm({ onLogout }: Props) {
       <input
         type="email"
         placeholder="Email"
-        className="w-full p-3 rounded-md 
-               bg-gray-800 
-               text-white 
-               placeholder-gray-400
-               border border-gray-600
-               focus:outline-none 
-               focus:ring-2 
-               focus:ring-blue-500"
+        className="w-full border p-2 rounded"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
+
       <input
         type="password"
         placeholder="Password"
-        className="w-full p-3 rounded-md 
-             bg-gray-800 
-             text-white 
-             placeholder-gray-400
-             border border-gray-600
-             focus:outline-none 
-             focus:ring-2 
-             focus:ring-blue-500"
+        className="w-full border p-2 rounded"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
 
 
