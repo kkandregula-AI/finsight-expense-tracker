@@ -1,45 +1,86 @@
-## Features
+# FinSight 💰
+
+A modern, real-time expense tracking application built with Next.js and Firebase.
+
+Live Demo (after deployment):  
+👉 https://your-vercel-url.vercel.app
+
+---
+
+## 🚀 Features
+
 - 🔐 Firebase Authentication (User Scoped Data)
 - ⚡ Real-time Expense Updates (Firestore onSnapshot)
-- 📅 Date-based Tracking
-- 📊 Smart Dashboard Metrics
-- 🎨 Fintech-inspired UI
-- 🔒 Firestore Security Rules Implemented
+- 📅 Date-based Expense Tracking
+- 📊 Smart Dashboard Metrics (Total & Monthly Summary)
+- 🎨 Fintech-inspired Clean UI
+- 🔒 Firestore Security Rules (User Data Isolation)
 
+---
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 🛠 Tech Stack
 
-## Getting Started
+- Next.js 14 (App Router)
+- Firebase Authentication
+- Firestore Database
+- Tailwind CSS
+- Vercel Deployment
 
-First, run the development server:
+---
+
+## 🔧 Local Setup
+
+1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+git clone https://github.com/kkandregula-AI/finsight-expense-tracker.git
+cd finsight-expense-tracker
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+npm install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Create a .env.local file in the root directory and add:
+NEXT_PUBLIC_FIREBASE_API_KEY=your_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your_measurement_id
 
-## Learn More
+4. Run the development server
+Run the development server
+Visit: http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+🔐 Security
+Firestore rules enforce per-user access control
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Environment variables secured via .env.local
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+No secrets committed to GitHub
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+📌 Future Enhancements
+📊 Category-wise charts
+
+
+✏️ Edit expense feature
+
+
+📄 CSV / PDF export
+
+
+💳 Subscription integration (Stripe)
+
+
+📱 Mobile-first PWA upgrade
+
+
+
+👨‍💻 Author
+Krishnamurthy Kandregula
+ AI / Product Engineering Enthusiast
