@@ -106,7 +106,7 @@ export default function Home() {
               Login to Continue
             </h2>
             <AuthForm />
-          </div>
+          </div>Logout
         </div>
       </div>
     );
@@ -120,14 +120,25 @@ export default function Home() {
       {/* LEFT PANEL */}
       <div className="w-full md:w-2/5 bg-gradient-to-br from-indigo-600 to-emerald-500 text-white p-6 md:p-10 flex flex-col">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">FinSight</h1>
-          <button
-            onClick={() => signOut(auth)}
-            className="bg-red-600 px-3 py-1 rounded hover:bg-red-700 text-white"
-          >
-            Logout
-          </button>
-        </div>
+  
+  <div>
+    <h1 className="text-3xl font-bold text-white">
+      FinSight
+    </h1>
+    <p className="text-sm text-white/80 mt-1">
+      Track Smart. Spend Smarter.
+    </p>
+  </div>
+
+  <button
+    onClick={() => signOut(auth)}
+    className="bg-red-600 px-3 py-1 rounded hover:bg-red-700 text-white"
+  >
+    Logout
+  </button>
+
+</div>
+
 
         <ExpenseForm onAdd={handleAddExpense} />
       </div>
