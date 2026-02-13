@@ -87,8 +87,7 @@ export default function AuthForm({ onLogout }: Props) {
         type="email"
         placeholder="Email"
         name="email"
-        className="w-full border p-2 rounded"
-        text-black
+        className="w-full border p-2 rounded bg-gray-700 text-white placeholder-gray-300"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
@@ -97,8 +96,7 @@ export default function AuthForm({ onLogout }: Props) {
         type="password"
         placeholder="Password"
         name="password"
-        className="w-full border p-2 rounded"
-        text-black
+        className="w-full border p-2 rounded bg-gray-700 text-white placeholder-gray-300"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
