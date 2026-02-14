@@ -40,7 +40,7 @@ export default function Home() {
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const data = snapshot.docs.map((doc) => ({
-        id: doc.id, // Firestore string ID
+        id: doc.id,
         ...doc.data(),
       }));
       setExpenses(data);
@@ -85,67 +85,70 @@ export default function Home() {
     .reduce((sum, e) => sum + e.amount, 0);
 
   // =============================
-  // 🔹 Landing Page
+  // 🔹 Landing Page (if not logged in)
   // =============================
   if (!user) {
     return (
-      <div className="flex flex-col md:flex-row h-screen">
+      <div className="flex flex-col md:flex-row min-h-screen">
         {/* LEFT */}
-        <div className="w-full md:w-1/2 bg-gradient-to-br from-indigo-600 to-emerald-500 text-white flex flex-col justify-center items-start px-16 py-10">
-          <h1 className="text-4xl font-bold mb-4">FinSight</h1>
-          <p className="text-lg opacity-90 max-w-md">
-            Track your daily expenses with real-time updates,
-            smart summaries, and a clean financial dashboard.
+        <div className="w-full md:w-1/2 bg-gradient-to-br from-indigo-700 to-emerald-600 text-white flex flex-col justify-center items-center md:items-start px-8 md:px-16 py-10">
+          <img
+            src="/logo.png"
+            alt="FinSight Logo"
+            className="h-24 md:h-32 w-auto object-contain"
+          />
+          <p className="text-sm md:text-base text-white/80 mt-2">
+            Track Smart. Spend Smarter.
           </p>
         </div>
 
         {/* RIGHT */}
-        <div className="w-full md:w-1/2 bg-gray-50 flex items-center justify-center p-10">
-          <div className="bg-white p-10 rounded-2xl shadow-2xl w-96">
+        <div className="w-full md:w-1/2 bg-gray-50 flex items-center justify-center p-6 md:p-10">
+          <div className="bg-white p-8 md:p-10 rounded-2xl shadow-2xl w-full max-w-md">
             <h2 className="text-2xl font-semibold mb-6 text-center">
               Login to Continue
             </h2>
             <AuthForm />
-          </div>Logout
+          </div>
         </div>
       </div>
     );
   }
 
   // =============================
-  // 🔹 Dashboard
+  // 🔹 Dashboard (if logged in)
   // =============================
   return (
-  <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row">
       {/* LEFT PANEL */}
-      <div className="w-full md:w-2/5 bg-gradient-to-br from-indigo-600 to-emerald-500 text-white p-6 md:p-10 flex flex-col">
+      <div className="w-full md:w-2/5 bg-gradient-to-br from-indigo-700 to-emerald-600 text-white p-6 md:p-10 flex flex-col">
+        {/* Header with Logout */}
         <div className="flex justify-between items-center mb-8">
-  
-  <div>
-    <h1 className="text-3xl font-bold text-white">
-      FinSight
-    </h1>
-    <p className="text-sm text-white/80 mt-1">
-      Track Smart. Spend Smarter.
-    </p>
-  </div>
+          <div className="flex flex-col">
+            <img
+              src="/logo.png"
+              alt="FinSight Logo"
+              className="h-14 md:h-16 w-auto object-contain mb-1"
+            />
+            <p className="text-sm md:text-base text-white/80">
+              Track Smart. Spend Smarter.
+            </p>
+          </div>
+          <button
+            onClick={() => signOut(auth)}
+            className="bg-red-600 px-3 py-1 rounded hover:bg-red-700 text-white text-sm md:text-base"
+          >
+            Logout
+          </button>
+        </div>
 
-  <button
-    onClick={() => signOut(auth)}
-    className="bg-red-600 px-3 py-1 rounded hover:bg-red-700 text-white"
-  >
-    Logout
-  </button>
-
-</div>
-
-
+        {/* Add Expense Form */}
         <ExpenseForm onAdd={handleAddExpense} />
       </div>
 
       {/* RIGHT PANEL */}
       <div className="w-full md:w-3/5 p-4 md:p-8 overflow-y-auto">
-justify        {/* Summary */}
+        {/* Summary */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-6 flex flex-col md:flex-row md:justify-between gap-4">
           <div>
             <p className="text-gray-500 text-sm">Total Expenses</p>
@@ -166,7 +169,7 @@ justify        {/* Summary */}
           expenses.map((expense) => (
             <div
               key={expense.id}
-              className="bg-white rounded-xl shadow p-4 mb-4 flex justify-between items-center"
+              className="bg-white rounded-xl shadow p-4 mb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-2 md:gap-4"
             >
               <div>
                 <p className="font-semibold">₹ {expense.amount}</p>
@@ -178,7 +181,7 @@ justify        {/* Summary */}
                 </p>
               </div>
               <button
-                className="text-red-600 hover:underline"
+                className="text-red-600 hover:underline mt-2 md:mt-0"
                 onClick={() => handleDeleteExpense(expense.id)}
               >
                 Delete
